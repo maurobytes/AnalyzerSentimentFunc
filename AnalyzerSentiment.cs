@@ -21,8 +21,8 @@ namespace AnalyzerSentiment
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            AzureKeyCredential credentials = new AzureKeyCredential("d00f6d9924c84109af5180e3068356bc");
-            Uri endpoint = new Uri("https://analyzersentiment.cognitiveservices.azure.com/");
+            AzureKeyCredential credentials = new AzureKeyCredential("<reemplazar-con-tu-text-analytics-key>");
+            Uri endpoint = new Uri("<reemplazar-con-tu-endpoint-analytics>");
 
             string text = req.Query["text"];
 
