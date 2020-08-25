@@ -24,13 +24,13 @@ namespace AnalyzerSentiment
             AzureKeyCredential credentials = new AzureKeyCredential("<reemplazar-con-tu-text-analytics-key>");
             Uri endpoint = new Uri("<reemplazar-con-tu-endpoint-analytics>");
 
-            string text = req.Query["text"];
+            string text = req.Query["body"];
 
             var client = new TextAnalyticsClient(endpoint, credentials);
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            text = text ?? data?.text;
+            text = text ?? data?.body;
 
             if (!string.IsNullOrEmpty(text))
             {
